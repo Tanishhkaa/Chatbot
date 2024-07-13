@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEHU Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body style="background-image: url('/static/GEHU-Dehradun-1abd6f9c.jpg');">
+<style>
+    .logo {
+    height: 170px;
+    width: 250px;
+    background-image: url('/static/GEHU-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 10px;
+}
+
+</style>
+
+
+    <div class="all-content">
+        <div class="header">
+            <div class="box-1">
+                <div class="logo">
+                </div>
+                <div class="box1-content">
+                    <div class="university-title">GRAPHIC ERA HILL UNIVERSITY</div>
+                </div>
+            </div>
+        </div>
+            <div class="box-2">
+                <div class="box2-content">
+                    <a href="https://student.gehu.ac.in" target="_blank">ERP login</a>
+                </div>
+                <div class="box2-content">
+                    <a href="https://btechcsegehu.in/" target="_blank">Department Website</a>
+                </div>
+                <div class="image">
+                    <div class="textbox">
+                        <h3>Computer Science and Engineering</h3>
+                    </div>
+                </div>
+            </div>
+
+        <div class="hero">
+            <div class="chatbot">
+                <div class="chatbot-head">
+                    <h3>The chatbot, here to assist you!!</h3>
+                </div>
+                <div class="chatbot-body">
+                    <div class="chatbot-messages">
+
+                        <!-- Display user's message -->
+                        {% for user_message in user_messages %}
+                            <div class="user-message">
+                                <strong>User:</strong> {{ user_message }}
+                            </div>
+                        {% endfor %}
+
+                        <!-- Display bot's message -->
+                        {% for bot_message in bot_messages %}
+                            <div class="bot-message">
+                                <strong>Bot:</strong> {{ bot_message | safe }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- The form for user input -->
+                <form method="post">
+                    <input class="chatbot-prompt" type="text" id="message" name="message" placeholder="Type your message here..." required>
+                    <button class="button" type="submit">Send</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
